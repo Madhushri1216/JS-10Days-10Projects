@@ -1,7 +1,12 @@
 let userInp = document.querySelector("input");
 let btn = document.querySelector("button");
+let p = document.querySelector("p");
 
 userInp.max = new Date().toISOString().split("T")[0];
+
+function getDaysInMonth(year, month) {
+  return new Date(year, month, 0).getDate();
+}
 
 function calculateAge() {
   let birthDate = new Date(userInp.value);
@@ -12,9 +17,9 @@ function calculateAge() {
 
   let today = new Date();
 
-  let y2 = birthDate.getFullYear();
-  let m2 = birthDate.getMonth() + 1;
-  let d2 = birthDate.getDate();
+  let y2 = today.getFullYear();
+  let m2 = today.getMonth() + 1;
+  let d2 = today.getDate();
 
   let d3, m3, y3;
 
@@ -38,15 +43,9 @@ function calculateAge() {
     m3 = 11;
     y3--;
   }
-
-  console.log(y3, m3, d3);
-}
-
-function getDaysInMonth(year, month) {
-  return new Date(year, month, 0).getDate();
+  p.innerHTML = `You are <span>${y3}</span> years <span>${m3}</span> months and <span>${d3}</span> days older`;
 }
 
 btn.addEventListener("click", function () {
-  console.log(userInp.value);
   calculateAge();
 });

@@ -64,3 +64,9 @@
   background-size: 30px;
   cursor: pointer;
 }
+p {
+  font-size: 20px;
+}
+p span {
+  color: #ffff76;
+}

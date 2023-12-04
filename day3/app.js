@@ -6,15 +6,15 @@ userInp.max = new Date().toISOString().split("T")[0];
 function calculateAge() {
   let birthDate = new Date(userInp.value);
 
+  let y1 = birthDate.getFullYear();
   let m1 = birthDate.getMonth() + 1;
   let d1 = birthDate.getDate();
-  let y1 = birthDate.getFullYear();
 
   let today = new Date();
 
+  let y2 = birthDate.getFullYear();
   let m2 = birthDate.getMonth() + 1;
   let d2 = birthDate.getDate();
-  let y2 = birthDate.getFullYear();
 
   let d3, m3, y3;
 
@@ -46,4 +46,7 @@ function getDaysInMonth(year, month) {
   return new Date(year, month, 0).getDate();
 }
 
-btn.addEventListener("click", calculateAge);
+btn.addEventListener("click", function () {
+  console.log(userInp.value);
+  calculateAge();
+});
